@@ -40,7 +40,7 @@ Riverpod is the state management choice because the session and the product list
 | Product list | `GET /products?limit=10&skip={offset}` |
 | Product details | `GET /products/:id` |
 
-The access token from login is written with `flutter_secure_storage` (Keychain on Apple platforms, Android Keystore). A Dio interceptor attaches it as `Authorization: Bearer …` on later requests. Signing out deletes the token.
+The access token from login is written with `flutter_secure_storage` (iOS Keychain, Android Keystore). A Dio interceptor attaches it as `Authorization: Bearer …` on later requests. Signing out deletes the token.
 
 The list handles four states: loading, error with retry, an empty catalog, and the product list. Pull-to-refresh reloads the first page. Scrolling near the bottom requests the next page until `products.length` reaches `total`. A failed next page keeps the products already shown and offers retry.
 
